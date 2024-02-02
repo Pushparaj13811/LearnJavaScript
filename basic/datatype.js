@@ -15,3 +15,12 @@
 
 //To check the datatype of any variable or data we can use `typeof` function
 console.log(typeof 5);
+
+// Declaration, Creation and adding the value in object.
+let student = {
+    name : "Pushparaj",
+    surname : "Mehta"
+}
+
+//we can print any variable's value of object by using objectName.variableName
+console.log(student.name)
