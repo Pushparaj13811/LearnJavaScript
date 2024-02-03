@@ -7,3 +7,4 @@ console.log(null >= 0) // It will return true because the comparison operation a
 // resulting the output as flase for 2
 
 // strict check i.e. === It will check the value and datatype both 
+
