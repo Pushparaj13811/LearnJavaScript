@@ -39,3 +39,16 @@ jsUser.greetingTwo = function(){
 
 console.log(jsUser.greeting())
 console.log(jsUser.greetingTwo())
+
+const course = {
+    courseName : "DBMS",
+    coursePrice : "999",
+    courseInstructor : "Pushparaj"
+}
+
+// De-structuring of object 
+const {courseName} = course
+const {courseName : name } = course
+
+console.log(courseName)
+console.log(name)
