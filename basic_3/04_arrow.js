@@ -61,5 +61,24 @@ const addTwo = (num1,num2) => (num1 + num2)
 // If we want to return object then we must wrap it in paranthesis. It is not possible to return object without wrapping it in paranthesis.
 // The output will be undefined if we don't wrap object in parnthesis
 
-const object = () => ({username:"Pushparaj"})
-console.log(object())
+// const object = () => ({username:"Pushparaj"})
+// console.log(object())
+
+// ======================== Immediately Invoked Function Expressions (IIFE) ==========================
+
+
+// To remove the pollution from global scope we use IIFE
+
+(function first(){
+    console.log(`DB CONNECTED`);
+})();
+
+( () => {
+    console.log(`DB CONNECTED ARROW IIFE`)
+})();
+
+((name) =>{
+    console.log(`DB CONNECTED TWO ${name}`);
+})('Pushparaj')
+
+// We should have to focus on ending the IIFE using semicolon in last. If we don't use semicolon and try to write more than one IIFE then we will prone to get error 
