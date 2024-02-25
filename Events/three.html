@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is me, Pushparaj Mehta.</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+    <div></div>
+  </body>
+  <script>
+    const sayDate = function () {
+      const message = "Pushparaj Mehta" + Date.now();
+      console.log(message);
+      return message;
+    };
+    let intervalId;
+
+    // const stop = clearInterval(intervalId);
+    document.querySelector("#start").addEventListener("click", function () {
+      intervalId = setInterval(sayDate, 1000);
+      const message = sayDate();
+      document.querySelector("div").innerHTML = message;
+    });
+
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearInterval(intervalId);
+      console.log("Interval cleared");
+    });
+  </script>
+</html>
