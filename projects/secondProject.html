@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Body color changer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        margin-top: 50px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px;
+      }
+
+      .backgroundColorName {
+        margin-top: 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Click below button to change the color of body.</h1>
+    <button id="start">Start changing colors!</button>
+    <button id="stop">Stop changing colors!</button>
+    <div class="backgroundColorName"></div>
+  </body>
+  <script>
+    // generate random color
+
+    const randomColorGenerator = function () {
+      const hex = "0123456789ABCDEF";
+      let colorCode = "#";
+      for (let i = 0; i < 6; i++) {
+        colorCode += hex[Math.ceil(Math.random() * 15)];
+      }
+      console.log(colorCode);
+      return colorCode;
+    };
+
+    let intervalId;
+    const startChangingColor = function () {
+      document.querySelector("#start").addEventListener("click", function () {
+        if (!intervalId) {
+          intervalId = setInterval(function () {
+            let colorCode = randomColorGenerator();
+            document.body.style.backgroundColor = colorCode;
+            document.querySelector(
+              ".backgroundColorName"
+            ).innerHTML = `Your background color is "${colorCode}"`;
+          }, 1000);
+        }
+      });
+    };
+    startChangingColor();
+    const stopChangingColor = function () {
+      document.querySelector("#stop").addEventListener("click", function () {
+        clearInterval(intervalId);
+        intervalId = null;
+      });
+    };
+    stopChangingColor();
+  </script>
+</html>

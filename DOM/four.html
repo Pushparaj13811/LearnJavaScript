@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM manupulation - Vanilla JS</title>
+  </head>
+  <body>
+    <ul class="language">
+      <li>Javascript</li>
+    </ul>
+  </body>
+  <script>
+    function addLanguage(langName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${langName}`; // This is not optimized way since whole tree should be traverse.
+      document.querySelector(".language").appendChild(li);
+    }
+
+    addLanguage("Python");
+    addLanguage("typescript");
+
+    function addLanguageInOptimizeWay(langName) {
+      const li = document.createElement("li");
+      //   li.textContent = langName;
+      li.appendChild(document.createTextNode(langName)); // This is optimized way since we don't travese whole tree structure.
+      document.querySelector(".language").appendChild(li);
+    }
+    addLanguageInOptimizeWay("golang");
+
+    // Edit DOM
+
+    let thirdLang = document.querySelector("li:nth-child(3)");
+    // thirdLang.innerHTML = "mojo"  This is not optimised element
+    const newLi = document.createElement("li");
+    newLi.textContent = "mojo";
+    thirdLang.replaceWith(newLi);
+
+    let firstLang = document.querySelector("li:first-child");
+    firstLang.outerHTML = "<li>Typescript</li>";
+
+    // remove
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove();
+  </script>
+</html>

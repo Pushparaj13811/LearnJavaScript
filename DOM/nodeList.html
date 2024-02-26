@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pushparaj</title>
+  </head>
+  <body style="background-color: #212121"></body>
+  <script>
+    // const div = document.createElement("div");
+    // console.log(div);
+    // div.className = "main";
+    // div.id = Math.round(Math.random() * 10 + 1);
+    // div.setAttribute("title", "generated title");
+    // div.style.backgroundColor = "green";
+    // div.style.padding = "12px";
+    // // div.innerText = "Div creaded by using javascript"; this is not optimized approach
+    // const addText = document.createTextNode("div created by using javascript");
+    // div.appendChild(addText);
+    // document.body.appendChild(div);
+
+    function creationOfDivUsingJavaScript(
+      className,
+      id,
+      backgroundColor,
+      color,
+      padding,
+      margin,
+      text,
+      font,
+      topic
+    ) {
+      const div = document.createElement("div");
+      const topicElement = document.createElement("h1");
+      div.className = className;
+      div.id = id;
+      div.setAttribute("title", "generated title");
+      div.style.backgroundColor = backgroundColor;
+      div.style.color = color;
+      div.style.padding = padding;
+      div.style.margin = margin;
+      div.appendChild(topicElement).appendChild(document.createTextNode(topic));
+      div.appendChild(document.createTextNode(text));
+      div.style.fontFamily = font;
+      div.style.textAlign = "center";
+      console.log(div);
+      document.body.appendChild(div);
+    }
+
+    const recyclingParagraphs = [
+      {
+        className: "topic-container",
+        id: "climate_change",
+        backgroundColor: "lightblue",
+        color: "black",
+        padding: "20px",
+        margin: "10px",
+        text: "Climate change is one of the most critical issues facing our planet today. It refers to long-term shifts in temperature, precipitation patterns, and other climate indicators, primarily caused by human activities such as burning fossil fuels, deforestation, and industrial processes. The consequences of climate change are far-reaching and include rising global temperatures, melting ice caps, more frequent and severe weather events, and disruptions to ecosystems and wildlife. If left unaddressed, climate change poses significant risks to human health, food security, water resources, and economic stability. Mitigating climate change requires urgent and coordinated action at the local, national, and global levels, including reducing greenhouse gas emissions, transitioning to renewable energy sources, protecting natural habitats, and implementing sustainable practices.",
+        font: "Arial",
+        topic: "Climate Change",
+      },
+      {
+        className: "topic-container",
+        id: "artificial_intelligence",
+        backgroundColor: "lightgreen",
+        color: "black",
+        padding: "20px",
+        margin: "10px",
+        text: "Artificial intelligence (AI) is transforming various aspects of our lives, from transportation and healthcare to entertainment and finance. It refers to the simulation of human intelligence in machines capable of performing tasks that typically require human intelligence, such as learning, problem-solving, decision-making, and language understanding. AI technologies, including machine learning, neural networks, natural language processing, and robotics, are advancing rapidly and enabling breakthroughs in automation, data analysis, predictive modeling, and personalization. While AI offers numerous benefits, such as increased efficiency, productivity, and innovation, it also raises ethical, social, and economic concerns, including job displacement, privacy infringement, algorithmic bias, and autonomous weapon systems. Responsible development, deployment, and governance of AI are essential to harness its potential for the greater good.",
+        font: "Verdana",
+        topic: "Artificial Intelligence",
+      },
+      {
+        className: "topic-container",
+        id: "mental_health",
+        backgroundColor: "lightyellow",
+        color: "black",
+        padding: "20px",
+        margin: "10px",
+        text: "Mental health is a crucial aspect of overall well-being, encompassing emotional, psychological, and social dimensions. It influences how we think, feel, and behave, shaping our relationships, work performance, and quality of life. Mental health disorders, such as depression, anxiety, bipolar disorder, schizophrenia, and post-traumatic stress disorder (PTSD), are prevalent and can have profound impacts on individuals, families, and communities. Stigma, discrimination, lack of access to care, and inadequate resources often exacerbate the challenges faced by those living with mental illness. Promoting mental health and preventing mental disorders require comprehensive approaches addressing risk factors, protective factors, and social determinants of health. This entails fostering resilience, creating supportive environments, expanding access to mental health services, and advocating for policies that prioritize mental health equity and inclusion.",
+        font: "Times New Roman",
+        topic: "Mental Health",
+      },
+      {
+        className: "topic-container",
+        id: "sustainable_development",
+        backgroundColor: "lightpink",
+        color: "black",
+        padding: "20px",
+        margin: "10px",
+        text: "Sustainable development seeks to meet the needs of the present without compromising the ability of future generations to meet their own needs. It entails integrating economic growth, social equity, and environmental protection to achieve long-term prosperity and well-being for all. The Sustainable Development Goals (SDGs), adopted by the United Nations in 2015, encompass a wide range of interconnected issues, including poverty eradication, gender equality, clean energy, climate action, responsible consumption, and biodiversity conservation. Achieving sustainable development necessitates collaboration among governments, businesses, civil society, and individuals to implement policies, practices, and technologies promoting sustainability across sectors and regions. This involves investing in renewable energy, enhancing resource efficiency, reducing waste, promoting sustainable agriculture, and fostering inclusive and resilient communities.",
+        font: "Calibri",
+        topic: "Sustainable Development",
+      },
+      {
+        className: "topic-container",
+        id: "space_exploration",
+        backgroundColor: "lightgrey",
+        color: "black",
+        padding: "20px",
+        margin: "10px",
+        text: "Space exploration has long captivated humanity's imagination and continues to push the boundaries of science, technology, and human achievement. It encompasses the discovery and exploration of outer space, including the moon, planets, stars, galaxies, and beyond. Space exploration serves multiple purposes, including scientific research, technological innovation, national security, and international cooperation. It has led to groundbreaking discoveries, such as exoplanets, the origins of the universe, and the potential for extraterrestrial life. Space missions, conducted by space agencies such as NASA, ESA, Roscosmos, and private companies like SpaceX, Blue Origin, and Virgin Galactic, involve spacecraft, satellites, rovers, and human astronauts. As humanity ventures further into space, space exploration holds the promise of unlocking new knowledge, resources, and opportunities while inspiring future generations to dream big and explore the unknown.",
+        font: "Courier New",
+        topic: "Space Exploration",
+      },
+    ];
+
+    recyclingParagraphs.forEach((element) => {
+      let className = element.className;
+      let id = element.id;
+      let backgroundColor = element.backgroundColor;
+      let color = element.color;
+      let padding = element.padding;
+      let margin = element.margin;
+      let text = element.text;
+      let font = element.font;
+      let topic = element.topic;
+
+      creationOfDivUsingJavaScript(
+        className,
+        id,
+        backgroundColor,
+        color,
+        padding,
+        margin,
+        text,
+        font,
+        topic
+      );
+    });
+  </script>
+</html>
