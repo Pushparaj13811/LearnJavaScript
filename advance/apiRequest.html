@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>api request</title>
+    <style>
+      .image {
+        height: 500px;
+        width: 250px;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 5px;
+        padding-top: 15px;
+        text-align: center;
+        background-color: #212121;
+        color: #fff;
+        transition: 0.5s ease;
+      }
+      .image img {
+        width: 230px;
+        border-radius: 5px;
+        box-shadow: #fff 0 0 5px;
+        transition: 0.3s ease;
+        cursor: pointer;
+      }
+      .image:hover {
+        box-shadow: #212121 0 0 20px;
+      }
+      .personalinfo {
+        text-align: left;
+        padding: 10px;
+      }
+      .info_head {
+        font-style: normal;
+        font-family: "Arial Narrow", Arial, sans-serif;
+        font-weight: 600;
+        padding-bottom: 5px;
+        margin: 0;
+      }
+      .info {
+        font-style: normal;
+        font-family: "Arial Narrow", Arial, sans-serif;
+        font-size: 18px;
+        padding-bottom: 5px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image">
+      <img src="" alt="" />
+      <div class="personalinfo">
+        <h2 class="name info_head"></h2>
+        <p class="info" id="username"></p>
+        <p class="info" id="follower"></p>
+        <p class="info" id="company"></p>
+        <p class="info" id="bio"></p>
+      </div>
+    </div>
+  </body>
+  <script>
+    const requestUrl = "https://api.github.com/users/Pushparaj13811";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText); // we get string in api we need to convert it into json object
+        console.log(typeof data);
+        console.log(data);
+        const imageUrl = data.avatar_url;
+        const name = data.name;
+        const follower = data.followers;
+        const userName = data.login;
+        let company = data.company;
+        const bio = data.bio;
+        console.log(bio);
+        if (company === null) {
+          company = "Not applicable";
+        }
+
+        document.querySelector("img").src = imageUrl;
+        document.querySelector(".name").innerHTML = name;
+        document.getElementById(
+          "username"
+        ).innerHTML = `Username : ${userName}`;
+        document.getElementById(
+          "follower"
+        ).innerHTML = `Followers: ${follower}`;
+        document.getElementById("company").innerHTML = `Company: ${company}`;
+        if (bio === null) {
+          document.querySelector("#bio").innerHTML = Null;
+        } else {
+          document.getElementById("bio").innerHTML = `Bio: ${bio}`;
+        }
+      }
+    };
+    xhr.send();
+  </script>
+</html>
