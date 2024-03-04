@@ -23,5 +23,4 @@ class Teacher extends User {
 
 const Alpana = new Teacher("Alpana", "Alpana@google.com");
 Alpana.logMe();
-console.log(Alpana.createId();)
-
+console.log(Alpana.createId());
