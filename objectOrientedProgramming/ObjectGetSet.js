@@ -7,7 +7,14 @@ const User = {
   set email(value) {
     this._email = value;
   },
+  get password() {
+    return `${this._password}/[^\w]/g, "")`;
+  },
+  set password(value) {
+    this._password = value;
+  },
 };
 
 const tea = Object.create(User);
 console.log(tea.email);
+console.log(tea.password);
